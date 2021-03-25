@@ -1,0 +1,27 @@
+<div>
+  <!--search products-->
+  <div class="search-product">
+    <input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel (ngModelChange)="SearchProduct()" placeholder="what's product?">
+  </div>
+  <!--show list product-->
+  <div>
+    <div class="serv">
+      <ul>
+        <li *ngFor="let eachProducts of products">
+            <div class="card-body text-center">
+              <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{eachProducts.name}}</h5>
+                    <p class="card-text">{{eachProducts.brand}}</p>
+                    <p class="card-text">{{eachProducts.price}} VND</p>
+                    <a class="btn btn-success" href="#" role="button">button</a>
+                    <button type="button" class="btn btn-info">detail</button>
+                  </div>
+              </div>
+          </div> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
