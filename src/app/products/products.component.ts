@@ -27,14 +27,14 @@ export class ProductsComponent implements OnInit {
     
   }
   SearchProduct(): void{
-    if(this.name==""){
-      this.ngOnInit();
-    }else{
-      this.products=this.products.filter(res=>{
-        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-      });
-      // alert("not rong");
-    }
+    // if(this.name==""){
+    //   this.ngOnInit();
+    // }else{
+    //   this.products=this.products.filter(res=>{
+    //     return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+    //   });
+    //   // alert("not rong");
+    // }
   }
 
 }
