@@ -9,24 +9,25 @@ import { fakeData } from '../fake-data';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:Product[] =[];
-  name:any;
-  constructor(private productService:ProductService) {
+  products: Product[] = [];
+  name: any;
+  price: boolean = true;
+  constructor(private productService: ProductService) {
 
   }
-  getProductFromService():void{
+  getProductFromService(): void {
     //this.products=this.productService.getProduct();
     this.productService.getProduct().subscribe(
-      (updateProducts)=>{
-        this.products=updateProducts;
+      (updateProducts) => {
+        this.products = updateProducts;
       }
     );
   }
   ngOnInit(): void {
     this.getProductFromService();
-    
+
   }
-  SearchProduct(): void{
+  SearchProduct(): void {
     // if(this.name==""){
     //   this.ngOnInit();
     // }else{
@@ -36,5 +37,14 @@ export class ProductsComponent implements OnInit {
     //   // alert("not rong");
     // }
   }
+  //sort
+  key: string = 'id';
+  status: boolean = false;
+  sort(key: string) {
+    this.key = key;
+    this.status = !this.status;
+  }
+  //pagination
+  p: number = 1;
 
 }

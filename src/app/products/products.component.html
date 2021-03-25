@@ -1,36 +1,34 @@
 <div>
-  <!--search products-->
-  <div class="search-product">
-    <input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel placeholder="what's product?">
-  </div>
-  <!--sorting product-->
-  <!--dropdown-->
-  <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-    <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Don't Sort</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownManual">
-      <button ngbDropdownItem>ascend</button>
-      <button ngbDropdownItem>reduce</button>
+    <!--search products-->
+    <div class="search-product">
+        <input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel placeholder="search everything in hear">
+        <div *ngIf="!status">
+            <button type="button" class="btn btn-info sort-products" (click)="sort('price')">increase</button>
+        </div>
+        <div *ngIf="status">
+            <button type="button" class="btn btn-info sort-products" (click)="sort('price')">reduction</button>
+        </div>
     </div>
-  </div>
-  <!--show list product-->
-  <div>
-    <div class="serv">
-      <ul>
-        <li *ngFor="let eachProducts of products | filter:name| orderBy:'price' ">
-            <div class="card-body text-center">
-              <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{eachProducts.name}}</h5>
-                    <p class="card-text">{{eachProducts.brand}}</p>
-                    <p class="card-text">{{eachProducts.price}} VND</p>
-                    <a class="btn btn-success" href="#" role="button">button</a>
-                    <button type="button" class="btn btn-info">detail</button>
-                  </div>
-              </div>
-          </div> 
-        </li>
-      </ul>
+    <!--show list product-->
+    <div>
+        <div class="serv">
+            <ul>
+                <li *ngFor="let eachProducts of products | filter:name | orderBy: key: status | paginate: { itemsPerPage: 2, currentPage: p }">
+                    <div class="card-body text-center">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{eachProducts.name}}</h5>
+                                <p class="card-text">{{eachProducts.brand}}</p>
+                                <p class="card-text">{{eachProducts.price}} VND</p>
+                                <a class="btn btn-success" href="#" role="button">button</a>
+                                <button type="button" class="btn btn-info">detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
-  </div>
 </div>
