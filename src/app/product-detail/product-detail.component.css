@@ -1,0 +1,25 @@
+.showimage {
+    height: auto;
+}
+
+.detail {
+    border: solid 1px;
+}
+
+.name-product {
+    text-align: center;
+}
+
+.brand-product {
+    float: left;
+    margin-bottom: 0px;
+    width: 20%;
+}
+
+.image {
+    width: 100%;
+}
+
+.seeMore {
+    display: none;
+}

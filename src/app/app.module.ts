@@ -12,11 +12,16 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormsModule} from '@angular/forms';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductDetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

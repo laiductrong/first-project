@@ -11,7 +11,6 @@ import { fakeData } from '../fake-data';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
   name: any;
-  price: boolean = true;
   constructor(private productService: ProductService) {
 
   }
@@ -25,18 +24,8 @@ export class ProductsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getProductFromService();
+  }
 
-  }
-  SearchProduct(): void {
-    // if(this.name==""){
-    //   this.ngOnInit();
-    // }else{
-    //   this.products=this.products.filter(res=>{
-    //     return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-    //   });
-    //   // alert("not rong");
-    // }
-  }
   //sort
   key: string = 'id';
   status: boolean = false;

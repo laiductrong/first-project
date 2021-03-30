@@ -1,0 +1,82 @@
+<p>product-detail works!</p>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <div *ngIf="product">
+            <!--design detail product-->
+            <div class="row detail">
+                <div class="col-sm-6 showimage">
+                    <img src="https://media.travelmag.vn/files/thuannguyen/2020/04/25/cach-chup-anh-dep-tai-da-lat-1-2306.jpeg" class="image">
+                </div>
+                <div class="col-sm-6">
+                    <h2 class="name-product">{{product.name}}</h2>
+                    <hr>
+                    <div>
+                        <p class="brand-product"> Brand:</p>
+                        <h4 style="margin-bottom: 0px;">{{product.brand}}</h4>
+                    </div>
+                    <div>
+                        <p class="brand-product"> Price:</p>
+                        <h4 style="margin-bottom: 0px;">{{product.price}} VNĐ</h4>
+                    </div>
+                    <div>
+                        <legend class="brand-product"> Detail:</legend>
+                        <p style="margin-top: 20px;">{{product.infor}}</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <legend>Size:</legend>
+                        <div><select class="custom-select">
+                            <option value="1">S</option>
+                            <option value="2">M</option>
+                            <option value="3">L</option>
+                            <option value="4">XL</option>
+                            <option value="5">XXL</option>
+                        </select></div>
+                    </div>
+                    <fieldset>
+                        <legend>Gender</legend>
+                        <div>
+                            <div style="width: 25%; float: left; background-color: rgb(255, 255, 255); border: solid 1px;">
+                                <input type="radio" name="color" id="color-w" value="white" checked="checked">
+                                <label for="color-w">white</label>
+                            </div>
+                            <div style="width: 25%; float: left; background-color: rgb(81, 81, 250); border: solid 1px; color: rgb(251, 251, 251);">
+                                <input type="radio" name="color" id="color-b" value="blu">
+                                <label for="color-b">blu</label>
+                            </div>
+                            <div style="width: 25%; float: left; background-color: yellow; border: solid 1px;">
+                                <input type="radio" name="color" id="color-y" value="yellow">
+                                <label for="color-yellow">yellow</label>
+                            </div>
+                            <div style="width: 25%; float: left; background-color: black; border: solid 1px; color: white;">
+                                <input type="radio" name="color" id="color-bl" value="black">
+                                <label for="color-bl">black</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr>
+                    <button type="button" class="btn btn-primary">Add to card</button>
+                    <button type="button" class="btn btn-outline-warning" (click)="seeMore(product.brand)">See more</button>
+                    <br>
+                </div>
+            </div>
+
+
+            <!--see more-->
+            <li *ngFor="let item of listProducts| filter:name ">
+                <div class="card-body text-center">
+                    <div class="card" style="width: auto;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.brand}}</p>
+                            <p class="card-text">{{item.price}} VND</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+    <div class="col-sm-3"></div>
+</div>

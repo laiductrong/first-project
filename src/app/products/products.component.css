@@ -2,16 +2,23 @@
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
-  }
-  
+}
+
 .serv ul li {
     list-style: none;
     flex: 0 0 25%;
-  }
-.search-product{
+}
+
+.search-product {
     max-width: 15rem;
     margin-left: 90rem;
 }
-.sort-products{
-  min-width: 3cm;
+
+.sort-products {
+    min-width: 3cm;
+}
+
+.image-product {
+    width: 100px;
+    height: auto;
 }
