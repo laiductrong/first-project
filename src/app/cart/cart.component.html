@@ -1,1 +1,46 @@
 <p>cart works!</p>
+<div>
+    <h4>item:</h4>
+    <button class="clear" (click)="cartService.deleteAllItem()">clear</button>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">price</th>
+                        <th scope="col">size</th>
+                        <th scope="col">color</th>
+                        <th scope="col">amount</th>
+                        <th scope="col">total</th>
+                        <th scope="col">time add to cart</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let item of cartService.items'>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.size}}</td>
+                        <td>{{item.color}}</td>
+                        <td>{{item.total}}</td>
+                        <td>{{item.price*item.total}}</td>
+                        <td></td>
+                        <td (click)=checkOutItem(item)><button>mua</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <button routerLink="/cart/history">lich su mua</button>
+
+
+
+
+
+</div>

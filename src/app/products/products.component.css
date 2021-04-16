@@ -11,7 +11,6 @@
 
 .search-product {
     max-width: 15rem;
-    margin-left: 90rem;
 }
 
 .sort-products {
@@ -19,6 +18,12 @@
 }
 
 .image-product {
-    width: 100px;
+    width: 90px;
     height: auto;
+}
+
+.dsimage {
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
 }

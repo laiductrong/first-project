@@ -1,0 +1,22 @@
+<div>
+
+    <div *ngFor="let brand of listBrand">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let item of listProduct| orderBy:'-sold' | filter : brand.namebrand " class="slide">
+                <div class="card-body text-center" (click)="seeMoreProduct(item.id)">
+                    <div class="card" style="width: auto;">
+                        <img src={{item.image}}>
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p>{{item.sold}}</p>
+                            <p class="card-text">{{item.brand}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+        <button (click)="slickModal.slickGoTo(press(brand.id))">press</button>
+        <button (click)="slickModal.slickGoTo(next(brand.id))">next</button>
+    </div>
+
+</div>

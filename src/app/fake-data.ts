@@ -4,8 +4,11 @@ export var fakeData: Product[]=[
         id: 1,
         name: "sản phẩm 1",
         brand: "hãng 1",
-        img : "",
+        image : "",
         infor:"",
-        price: 100000
+        price: 100000,
+        color:[],
+        type:"",
+        sold:0
     }
 ]

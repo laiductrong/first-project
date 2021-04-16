@@ -1,4 +1,5 @@
-import { from } from 'rxjs';
+import { AccountService } from './account.service';
+import { CartService } from './cart.service';
 import { ProductService } from './product.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,14 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormsModule} from '@angular/forms';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
+import { AccountComponent } from './account/account.component';
+import { TrendComponent } from './trend/trend.component';
+import { InforComponent } from './infor/infor.component';
+import { LoginComponent } from './login/login.component';
+import { BottomComponent } from './bottom/bottom.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HistoryComponent } from './history/history.component';
+
 
 
 @NgModule({
@@ -22,6 +31,12 @@ import { CartComponent } from './cart/cart.component';
     ProductsComponent,
     ProductDetailComponent,
     CartComponent,
+    AccountComponent,
+    TrendComponent,
+    InforComponent,
+    LoginComponent,
+    BottomComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +46,15 @@ import { CartComponent } from './cart/cart.component';
     Ng2OrderModule,
     Ng2SearchPipeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SlickCarouselModule
 
   ],
-  providers: [ProductService],// khai báo service sử dụng
+  providers: [//khai bao service sử dụng
+    ProductService,
+    CartService, 
+    AccountService
+  ],// khai báo service sử dụng
   bootstrap: [AppComponent]
 })
 export class AppModule { }

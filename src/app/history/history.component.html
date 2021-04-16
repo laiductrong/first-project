@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">name</th>
+            <th scope="col">size</th>
+            <th scope="col">color</th>
+            <th scope="col">price</th>
+            <th scope="col">total</th>
+            <th scope="col">status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of itemCheckOut">
+            <td>{{item.name}}</td>
+            <td>{{item.size}}</td>
+            <td>{{item.color}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.total}}</td>
+            <td *ngIf="item.status">da giao</td>
+            <td *ngIf="!item.status">dang giao</td>
+        </tr>
+        <tr>
+    </tbody>
+</table>
+<p *ngIf="itemCheckOut.length===0">
+    ban chua mua bat ki san pham nao
+</p>

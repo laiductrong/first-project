@@ -1,7 +1,6 @@
 import { ProductService } from './../product.service';
 import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
-import { fakeData } from '../fake-data';
 
 @Component({
   selector: 'app-products',
@@ -14,18 +13,22 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) {
 
   }
+  ngOnInit(): void {
+    this.getProductFromService();
+  }
+  check(s: string): void{
+    alert(s);
+  }
   getProductFromService(): void {
     //this.products=this.productService.getProduct();
     this.productService.getProduct().subscribe(
       (updateProducts) => {
         this.products = updateProducts;
+        console.log(this.products);
+        
       }
     );
   }
-  ngOnInit(): void {
-    this.getProductFromService();
-  }
-
   //sort
   key: string = 'id';
   status: boolean = false;
