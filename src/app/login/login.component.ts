@@ -45,10 +45,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-
-
-
   name: string = '';
   getinfor(idPhone: string): void {
     this.accountService.searchPhoneNumber(idPhone).subscribe((accs: Account[]) => {

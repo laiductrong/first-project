@@ -22,6 +22,12 @@ import { LoginComponent } from './login/login.component';
 import { BottomComponent } from './bottom/bottom.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HistoryComponent } from './history/history.component';
+import { AslidebaradminComponent } from './aslidebaradmin/aslidebaradmin.component';
+import { ManagerAccountComponent } from './manager-account/manager-account.component';
+import { ManagerOderComponent } from './manager-oder/manager-oder.component';
+import { ManagerProductComponent } from './manager-product/manager-product.component';
+import { ManagerHistoryOderComponent } from './manager-history-oder/manager-history-oder.component';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
 
 
@@ -37,6 +43,12 @@ import { HistoryComponent } from './history/history.component';
     LoginComponent,
     BottomComponent,
     HistoryComponent,
+    AslidebaradminComponent,
+    ManagerAccountComponent,
+    ManagerOderComponent,
+    ManagerProductComponent,
+    ManagerHistoryOderComponent,
+    PageNotFoundComponentComponent,
   ],
   imports: [
     BrowserModule,

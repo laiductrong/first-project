@@ -1,3 +1,9 @@
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { ManagerProductComponent } from './manager-product/manager-product.component';
+import { ManagerOderComponent } from './manager-oder/manager-oder.component';
+import { ManagerHistoryOderComponent } from './manager-history-oder/manager-history-oder.component';
+import { ManagerAccountComponent } from './manager-account/manager-account.component';
+import { AslidebaradminComponent } from './aslidebaradmin/aslidebaradmin.component';
 import { HistoryComponent } from './history/history.component';
 import { LoginComponent } from './login/login.component';
 import { InforComponent } from './infor/infor.component';
@@ -10,7 +16,6 @@ import { ProductsComponent } from './products/products.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 const routes: Routes = [
   {path: 'home', component: ProductsComponent},// trang chủ
   {path: 'detail/:id', component: ProductDetailComponent},// chi tiết
@@ -19,8 +24,17 @@ const routes: Routes = [
   {path: 'account', component: AccountComponent},//tài khoản
   {path: 'account/infor', component: InforComponent},// thông tin tài  khoản
   {path: 'login', component: LoginComponent},// đăng nhập
-  {path: 'cart/history', component: HistoryComponent}
-
+  {path: 'cart/history', component: HistoryComponent},// lịch sử mua
+  {path: 'manengadmin', component: AslidebaradminComponent,
+    children:[
+      {path: 'manegaaccount', component: ManagerAccountComponent},// quản lý tài khoản
+      {path: 'manegahistoryoder', component: ManagerHistoryOderComponent},//quản lý lịch sử mua hàng
+      {path: 'manegaoder', component: ManagerOderComponent},// quản lý đặt hàng
+      {path: 'manegaproduct', component: ManagerProductComponent}// quản lý sản phẩm
+    ]
+  },//page admin
+  {path: '**', component: PageNotFoundComponentComponent}// 404 page
+  
 ];
 
 @NgModule({

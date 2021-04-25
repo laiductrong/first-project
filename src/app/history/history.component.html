@@ -16,8 +16,8 @@
             <td>{{item.color}}</td>
             <td>{{item.price}}</td>
             <td>{{item.total}}</td>
-            <td *ngIf="item.status">da giao</td>
-            <td *ngIf="!item.status">dang giao</td>
+            <td *ngIf="item.status" style="color: rgb(1, 255, 77);">Đã Giao</td>
+            <td *ngIf="!item.status" style="color: red;">Chờ Xác Nhận</td>
         </tr>
         <tr>
     </tbody>

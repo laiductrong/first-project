@@ -1,0 +1,64 @@
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Size</th>
+            <th scope="col">Color</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let itemoder of itemsCheckOut">
+            <th scope="row">{{itemoder.id}}</th>
+            <td>{{itemoder.name}}</td>
+            <td>{{itemoder.price}}</td>
+            <td>{{itemoder.size}}</td>
+            <td>{{itemoder.color}}</td>
+            <td>{{itemoder.total}}</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="openVerticallyCentered(content,itemoder)">Delivery</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--infor item and user-->
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">COUPON</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h5>THÔNG TIN KHÁCH HÀNG</h5>
+        <strong>Name:</strong>
+        <p>{{name}}</p>
+        <strong>Phonenumber</strong>
+        <p>{{phonenumber}}</p>
+        <strong>Address</strong>
+        <p>{{address}}</p>
+        <hr>
+        <h5>THÔNG TIN SẢN PHẨM MUA</h5>
+        <strong>Product</strong>
+        <P>{{itemifor.name}}</P>
+        <strong>unit price</strong>
+        <p>{{itemifor.price}} VNĐ</p>
+        <strong>Size</strong>
+        <p>{{itemifor.size}}</p>
+        <strong>Color</strong>
+        <p>{{itemifor.color}}</p>
+        <strong>Total</strong>
+        <p>{{itemifor.total}}</p>
+        <hr>
+        <strong>Total Money</strong>
+        <p></p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="delivery(itemifor.id);modal.close('Close click')">Delivery</button>
+        <!-- <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button> -->
+    </div>
+</ng-template>

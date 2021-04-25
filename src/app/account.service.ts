@@ -40,6 +40,12 @@ export class AccountService {
       return this.http.get<any>(this.accountURL + '?phonenumber=' + phoneNumber, httpOptions);
     }
 
+  //search accout form id
+  searchAccountFromID(id: string): Observable<Account[]>{
+    const idNumber=new Number(id);
+    return this.http.get<Account[]>(this.accountURL+'?id='+idNumber,httpOptions);
+  }
+
   searchPhoneNumber(phoneNumber: string): Observable<Account[]> {
     this.phoneNumber=phoneNumber;
     return this.http.get<any>(this.accountURL + '?phonenumber=' + phoneNumber, httpOptions);
@@ -48,6 +54,28 @@ export class AccountService {
     return this.http.get<any>(this.accountURL + '?phonenumber=' + phoneNumber +'&pass='+ pass, httpOptions).pipe(
       catchError(error => of(null))
     ) 
+  }
+
+  //get all account
+  getAllAccount():Observable<Account[]>{
+    return this.http.get<Account[]>(this.accountURL).pipe(
+      catchError(error=>of([])
+      )
+    );
+  }
+
+  //thay đổi thông tin tài khoản
+  changeAccount(newAccount: Account):Observable<Account>{
+    const url=this.accountURL+"/"+newAccount.id;
+    return this.http.put<Account>(url,newAccount,httpOptions).pipe(    
+    );
+  }
+
+  //xóa account
+  deleteAcount(account: Account): Observable<Account>{
+    const url=this.accountURL+"/"+account.id;
+    return this.http.delete<Account>(url,httpOptions).pipe(    
+    );
   }
  
 }
