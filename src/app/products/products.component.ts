@@ -34,13 +34,11 @@ export class ProductsComponent implements OnInit {
     this.productService.getProduct().subscribe(
       (updateProducts) => {
         this.products = updateProducts;
-        console.log(this.products);
-
       }
     );
   }
   //sort
-  key: string = 'id';
+  key: string = '';
   status: boolean = false;
   sort(key: string) {
     this.key = key;

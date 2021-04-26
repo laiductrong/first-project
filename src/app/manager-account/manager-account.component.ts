@@ -21,6 +21,8 @@ export class ManagerAccountComponent implements OnInit {
     this.getAllAccount();
   }
 
+  //tên tìm kiếm
+  name: any;
   accounts: Account[] = [];
   getAllAccount(): void {
     this.accountService.getAllAccount().subscribe(
@@ -53,7 +55,7 @@ export class ManagerAccountComponent implements OnInit {
 
   //change infor
   changeInfor(phonenumber: string, pass: string, nameAccount: string, addressAccount: string): boolean {
-    if(this.checkPhoneNumber(phonenumber)===false){
+    if (!this.checkPhoneNumber(phonenumber)) {
       alert('Số điện thoại bị sai');
       return false;
     }
@@ -81,17 +83,19 @@ export class ManagerAccountComponent implements OnInit {
           newInfor => this.inforAccount = newInfor
         )
         //reload trang
-      }  
+      }
     }
     this.reloadPage();
     return true;
   }
 
   //kiểm tra sdt
-  checkPhoneNumber(phone: String): boolean{
-    if(phone.length===10&& (Number.isNaN(Number(phone))))
-      return true;
-    return false;
+  checkPhoneNumber(phone: String): boolean {
+    if (phone.length < 10 || phone.length > 10 || (Number.isNaN(Number(phone)))) {
+      alert(phone.length);
+      return false;
+    }
+    return true;
   }
 
   //xoas tài khoản
@@ -106,6 +110,14 @@ export class ManagerAccountComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+  }
+
+  //sắp xếp
+  key: string = 'id';
+  status: boolean = false;
+  sort(key: string) {
+    this.key = key;
+    this.status = !this.status;
   }
 
 }

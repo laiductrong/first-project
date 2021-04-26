@@ -82,6 +82,12 @@ export class CartService {
     return this.http.get<ItemCheckOut[]>(url);
   }
 
+  //lấy danh sách đã giao hàng
+  getItemCheckOuted(): Observable<ItemCheckOut[]>{
+    const url=this.cartURL+'?status=true';
+    return this.http.get<ItemCheckOut[]>(url);
+  }
+
   //giao hàng
   deliveryOder(itemCO: ItemCheckOut): Observable<ItemCheckOut>{
     const url=this.cartURL+"/"+itemCO.id;

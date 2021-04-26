@@ -1,3 +1,4 @@
+<input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel placeholder="search everything in hear">
 <button type="button" class="btn btn-success" (click)="openVerticallyCentered2(content)">Add member</button>
 <div style="width: 100%;">
     <table class="table" style="width: 100%;">
@@ -12,7 +13,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let account of accounts">
+            <tr>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('id')">Sort</button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('name')">Sort</button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('phonenumber')">Sort</button>
+                </th>
+                <th scope="col"></th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('address')">Sort</button>
+                </th>
+                <th scope="col">Action</th>
+            </tr>
+            <tr *ngFor="let account of accounts | filter:name | orderBy: key: status">
                 <th scope="row">{{account.id}}</th>
                 <td>{{account.name}}</td>
                 <td>{{account.phonenumber}}</td>
