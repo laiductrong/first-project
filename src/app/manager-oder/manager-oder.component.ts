@@ -23,6 +23,8 @@ export class ManagerOderComponent implements OnInit {
   ngOnInit(): void {
     this.getItemsCheckOut();
   }
+  //name search
+  nameseach: any;
   //global item to show infor
   itemifor!: ItemCheckOut;
   //global users oder
@@ -70,5 +72,13 @@ export class ManagerOderComponent implements OnInit {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       this.router.navigate([currentUrl]);
+  }
+
+  //sắp xếp
+  key: string = 'id';
+  status: boolean = false;
+  sort(key: string) {
+    this.key = key;
+    this.status = !this.status;
   }
 }

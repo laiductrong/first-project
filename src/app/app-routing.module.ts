@@ -1,3 +1,8 @@
+import { MyAccountComponent } from './my-account/my-account.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ManagerBrandComponent } from './manager-brand/manager-brand.component';
+import { ChangeProductComponent } from './change-product/change-product.component';
+import { ManagerStatiscalComponent } from './manager-statiscal/manager-statiscal.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { ManagerProductComponent } from './manager-product/manager-product.component';
 import { ManagerOderComponent } from './manager-oder/manager-oder.component';
@@ -30,9 +35,14 @@ const routes: Routes = [
       {path: 'manegaaccount', component: ManagerAccountComponent},// quản lý tài khoản
       {path: 'manegahistoryoder', component: ManagerHistoryOderComponent},//quản lý lịch sử mua hàng
       {path: 'manegaoder', component: ManagerOderComponent},// quản lý đặt hàng
-      {path: 'manegaproduct', component: ManagerProductComponent}// quản lý sản phẩm
+      {path: 'manegaproduct', component: ManagerProductComponent},// quản lý sản phẩm
+      {path: 'manegastatiscal', component: ManagerStatiscalComponent},// quản lý thống kê
+      {path: 'manegabrand', component: ManagerBrandComponent}// quản lý hãng
     ]
   },//page admin
+  {path: 'changeproduct/:id',component: ChangeProductComponent},// thay đổi thồn tin sản phẩm
+  {path: 'addproduct', component: AddProductComponent},// them san pham
+  {path: 'myaccount', component: MyAccountComponent},// quanr ly tai khoan 
   {path: '**', component: PageNotFoundComponentComponent}// 404 page
   
 ];

@@ -1,3 +1,4 @@
+<input type="search" name="name" id="input" class="form-control" [(ngModel)]="nameseach" ngModel placeholder="search everything in hear">
 <table class="table">
     <thead class="thead-light">
         <tr>
@@ -11,7 +12,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let itemoder of itemsCheckOut">
+        <tr>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('id')">Sort</button>
+            </th>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('name')">Sort</button>
+            </th>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('price')">Sort</button>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let itemoder of itemsCheckOut | filter:nameseach | orderBy: key: status">
             <th scope="row">{{itemoder.id}}</th>
             <td>{{itemoder.name}}</td>
             <td>{{itemoder.price}}</td>

@@ -31,6 +31,24 @@ export class ProductService {
       
     });
   }
+
+
+  //cập nhật lai sản phẩm từ trang dmin
+  updateProductFromAdmin(p: Product):Observable<Product>{
+    const url=this.productsURL+'/'+p.id;
+    return this.http.put<Product>(url,p);
+  }
+
+  // thêm sản phẩm
+  addProductFromAdmin(p: Product): Observable<Product>{
+    return this.http.post<Product>(this.productsURL,p);
+  }
+
+  //delete
+  deleteProduct(i: number): Observable<Product>{
+    const url=this.productsURL+'/'+i;
+    return this.http.delete<Product>(url);
+  }
   constructor(
     private http: HttpClient
   ) { }

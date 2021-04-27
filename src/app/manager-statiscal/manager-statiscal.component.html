@@ -1,0 +1,39 @@
+<input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel placeholder="search everything in hear">
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Type</th>
+                <th scope="col">Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('id')">Sort</button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('name')">Sort</button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('brand')">Sort</button>
+                </th>
+                <th scope="col"></th>
+                <th scope="col">
+                    <button type="button" class="btn btn-outline-success" (click)="sort('sold')">Sort</button>
+                </th>
+            </tr>
+            <tr *ngFor="let item of products | filter:name| orderBy: key: status | paginate: { itemsPerPage: 14, currentPage: p }">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.brand}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.sold}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

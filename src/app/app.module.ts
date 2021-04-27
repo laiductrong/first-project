@@ -28,6 +28,12 @@ import { ManagerOderComponent } from './manager-oder/manager-oder.component';
 import { ManagerProductComponent } from './manager-product/manager-product.component';
 import { ManagerHistoryOderComponent } from './manager-history-oder/manager-history-oder.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { ManagerStatiscalComponent } from './manager-statiscal/manager-statiscal.component';
+import { ChangeProductComponent } from './change-product/change-product.component';
+import { ManagerBrandComponent } from './manager-brand/manager-brand.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { HeaderAppComponent } from './header-app/header-app.component';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 
 
@@ -49,6 +55,12 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
     ManagerProductComponent,
     ManagerHistoryOderComponent,
     PageNotFoundComponentComponent,
+    ManagerStatiscalComponent,
+    ChangeProductComponent,
+    ManagerBrandComponent,
+    AddProductComponent,
+    HeaderAppComponent,
+    MyAccountComponent,
   ],
   imports: [
     BrowserModule,

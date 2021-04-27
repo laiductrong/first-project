@@ -15,5 +15,17 @@ export class BrandService {
     //return of(fakeData);
     return this.http.get<Brand[]>(this.brandURL);
   }
+  changeBrand(br: Brand): Observable<Brand>{
+    const url=this.brandURL+'/'+br.id;
+    return this.http.put<Brand>(url,br);
+  }
+  delete(id: number): Observable<Brand>{
+    const url=this.brandURL+'/'+id;
+    return this.http.delete<Brand>(url);
+  }
+  add(br: Brand): Observable<Brand>{
+    return this.http.post<Brand>(this.brandURL, br);
+  }
   constructor(private http: HttpClient) { }
+  //lấy danh sách hãng
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CartService } from './../cart.service';
 import { Item } from './../models/item';
 import { ProductService } from './../product.service';
@@ -15,10 +16,13 @@ export class ProductsComponent implements OnInit {
   item: Item | undefined;
   constructor(
     private productService: ProductService,
-    private cartService: CartService) {
+    private cartService: CartService,
+    private router: Router
+    ) {
 
   }
   ngOnInit(): void {
+    // this.reloadPage();
     this.getProductFromService();
   }
   check(s: string): void {
@@ -46,5 +50,14 @@ export class ProductsComponent implements OnInit {
   }
   //pagination
   p: number = 1;
+
+
+   //reload page
+   reloadPage(): void {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
 
 }

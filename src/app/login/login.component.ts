@@ -27,9 +27,20 @@ export class LoginComponent implements OnInit {
     return true;
   }
 
+  //reload page
+  reloadPage(): void {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
+
   login(phoneNumber: string, password: string): void {
 
-    console.log(this.allAccount);
+    //login admin
+    if(phoneNumber==='admin'&& password==='admin'){
+      this.router.navigate(['/manengadmin']);
+    }
 
     if (this.checkValue(phoneNumber, password)) {
       this.accountService.loginAccount(phoneNumber, password).subscribe((account) => {
@@ -40,6 +51,7 @@ export class LoginComponent implements OnInit {
         }
         else {
           console.log('false');
+          alert('sai thông tin đăng nhập');
         }
       })
     }
@@ -54,6 +66,12 @@ export class LoginComponent implements OnInit {
       account=JSON.parse(String(account));
       console.log(account.name);
     })
+  }
+
+  //logout
+  logoutaccout(): void{
+    localStorage.removeItem('account');
+    //this.nameaccount='Login';
   }
 
 }
